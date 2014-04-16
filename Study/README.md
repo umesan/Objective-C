@@ -28,32 +28,17 @@ JSとほぼ一緒。
 
 # 変数
 JSと違って型指定が必須。  
+Xcodeでは、利用していない変数がある場合に、警告が出る。
 
 #### 型
-int 整数(負〜正)  
-NSinteger 整数(負〜正) ビット長が変わる  
-unsigned int 0 と正の整数  
-NSUInteger  0 と正の整数 ビット長が変わる  
-
-
-
-
-# 変数
-JSと違って型指定が必須。  
-
-#### 型
-int 整数(負〜正)  
-NSinteger 整数(負〜正) ビット長が変わる  
-unsigned int 0 と正の整数  
-NSUInteger  0 と正の整数 ビット長が変わる  
-
-double 小数点がある場合  
-float 小数点がある場合、代入時に末尾にfをつける(例) float gap = 12.345f;  
-
-BOOL true/false の２択 YES or 1, NO or 0
-jsと同じで true,falseでもOK
-
-char 半角英数字を１文字だけ入れることができる
+int : 整数(負〜正)  
+NSinteger : 整数(負〜正) ビット長が変わる  
+unsigned int : 0 と正の整数  
+NSUInteger : 0 と正の整数 ビット長が変わる  
+double : 小数点がある場合  
+float : 小数点がある場合、代入時に末尾にfをつける(例) float gap = 12.345f;  
+BOOL : true/false の２択 YES or 1, NO or 0 (jsと同じで true,falseでもOK)
+char : 半角英数字を１文字だけ入れることができる
 
 
 #### キャスト
@@ -63,7 +48,6 @@ char 半角英数字を１文字だけ入れることができる
 #### typtedef 
 型指定を任意の文字で設定できる
 
-#### Xcodeでは、利用していない変数がある場合に、警告を出す
 
 
 #### ポインタ型の変数は変数名の前に *を付ける
