@@ -55,9 +55,9 @@ char 半角英数字を１文字だけ入れることができる
 
 
 #### ポインタ型の変数は変数名の前に *を付ける
-{code}
+```
 データ型 *変数名;
-{code}
+```
 
 Objective-Cでインスタンス変数を宣言する時に、
 型がクラスオブジェクト型の場合は、変数名の頭にアスタリスクを付ける。
@@ -73,21 +73,21 @@ const で宣言。
 .hファイルや .mのクラス宣言部分で定義する
 
 enum 列挙型の定義,連番が入る
-{code}
+```
 enum {
   NUM_A = 10,
   NUM_B,
   NUM_C
 };
-{code}
+```
 
 
 #### define
 定数を定義できる(PHPのdefine的な。。。)
-{code}
+```
 #define URL @"test.com"
 NSLog(@"URLは%@", URL); // URLはtest.com
-{code}
+```
 
 尚、undef で解除可能
 
@@ -99,11 +99,11 @@ NSLog(@"URLは%@", URL); // URLはtest.com
 ただし、デフォルトでは文字列だけ。  
 数値とか、オブジェクトとかのログを出したい場合は、  
 フォーマット指定子と呼ばれるものを記載する必要あり。  
-{code}
+```
 int a,b;
 a = 10;
 b = 20;
-{code}
+```
 
 NSLog(@"はじめに%d、次に%d、最後に%d", b, a,b); //はじめに20、次に10、最後に20  
   
@@ -120,7 +120,7 @@ if分はjsと一緒
 
 # switch
 jsと似ているけど、値の部分を、定数定義してあげないといけない
-{code}
+```
     NSInteger YEAR = 2010;
     NSInteger const A=2009;
     NSInteger const B=2010;
@@ -136,7 +136,7 @@ jsと似ているけど、値の部分を、定数定義してあげないとい
             NSLog(@"Other");
             break;
     }
-{code}
+```
 
 
 
@@ -162,9 +162,9 @@ jsと違って変数の範囲が{}に閉じ込められる。
 
 #### プロパティ
 プロパティはjsとほぼ一緒。.繋ぎ。  
-{code}
+```
 _myfield.text = @"test";  
-{code}
+```
 
 #### メソッド
 
@@ -232,10 +232,10 @@ Objective-Cでインスタンス変数を宣言する時に、
 アクション：
 
 IBOutle は アウトレットである宣言
-{code}
+```
 IBOutlet UIWindow *window;
 MyViewController *myViewController;
-{code}
+```
 
 
 
@@ -260,13 +260,13 @@ MyViewController *myViewController;
 @property（宣言） と @synthesize（実装） でセット  
 
 #### ＜例＞  
-{code}
+```
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) MyViewController *myViewController;
 
 @synthesize window;
 @synthesize myViewController;
-{code}
+```
 
 「【UIWindow型】の【Window】っていうインスタンス変数にアクセスよろしく」
 「【myViewController型】の【myViewController】っていうインスタンス変数にアクセスよろしく」
@@ -280,79 +280,79 @@ MyViewController *myViewController;
 
 
 # 文字列操作
-{code}
-    // --------------------------------------------------
-    
-    // 文字列操作
-    
-    // --------------------------------------------------
-    
-    
-    // 文字を表示する
-    NSString *myString = @"こんにちは";
-    NSString *myString2 = @"赤ちゃん";
-    NSLog(@"%@%@",myString,myString2);
-    
-    // 文字列を連結 stringByAppendingString
-    NSString *Hello = [myString stringByAppendingString:myString2];
-    NSLog(@"--------------------------------------------");
-    NSLog(@"%@",Hello);
-    
-    
-    // 文字列を連結 stringWithFormat
-    NSString *text1 = @"たなか";
-    NSString *text2 = @"いちろー";
-    NSString *text3 = [NSString stringWithFormat:@"%@の%@",text1,text2];
-    NSLog(@"--------------------------------------------");
-    NSLog(@"%@",text3);
-    
-    // 文字列の長さを調べる
-    NSInteger txt_length = text3.length;
-    NSLog(@"--------------------------------------------");
-    NSLog(@"文字数：%d",txt_length);
+```
+// --------------------------------------------------
 
-    
-    // 文字列検索 rangeOfString / JS の indexOf的な
-    // rangeOfString,返値の型はNSRange
-    // .locationで0から数えて一致した場所
-    // .locationで一致しない場合は、NSNotFound（）
-    
-    NSString *keyword = @"なか";
-    NSRange range = [text3 rangeOfString:keyword];
-    NSLog(@"--------------------------------------------");
-    if(range.location == 0){
-        NSLog(@"「%@」は含まれていない",keyword);
-    }else{
-        // 「なか」は含まれていますが出力される
-        NSLog(@"「%@」は含まれています",keyword);
-    }
+// 文字列操作
 
-    
-    // 文字列の比較
-    NSString *deffTxt1 = @"iPhone4";
-    NSString *deffTxt2 = @"iPhone5";
+// --------------------------------------------------
 
-    NSLog(@"--------------------------------------------");
-    // あれ、普通に == で比較できちゃう？
-    if(deffTxt1 == deffTxt2){
-        NSLog(@"deffTxt1 と deffTxt2 は一緒です");
-    }else{
-        NSLog(@"deffTxt1 と deffTxt2 は一緒じゃない");
-    }
 
-    // 文字列は isEqualToString で比較
-    NSLog(@"--------------------------------------------");
-    if([deffTxt1 isEqualToString:deffTxt2]){
-        NSLog(@"deffTxt1 と deffTxt2 は一緒です");
-    }else{
-        NSLog(@"deffTxt1 と deffTxt2 は一緒じゃない");
-    }
+// 文字を表示する
+NSString *myString = @"こんにちは";
+NSString *myString2 = @"赤ちゃん";
+NSLog(@"%@%@",myString,myString2);
 
-    // 文字列置換 [stringByReplacingOccurrencesOfString:HOGE_BEFORE widthString:HOGE_AFTER]
-    // jsの  var text_after = text_before.replace('1','2');
-    NSString *replaceTxt1 = @"iPhone5最高!!!!";
-    NSString *replaceAfterTxt = [replaceTxt1 stringByReplacingOccurrencesOfString:@"!" withString:@"?"];
-    NSLog(@"置換後のテキスト：%@",replaceAfterTxt);
+// 文字列を連結 stringByAppendingString
+NSString *Hello = [myString stringByAppendingString:myString2];
+NSLog(@"--------------------------------------------");
+NSLog(@"%@",Hello);
 
-    
-{code}
+
+// 文字列を連結 stringWithFormat
+NSString *text1 = @"たなか";
+NSString *text2 = @"いちろー";
+NSString *text3 = [NSString stringWithFormat:@"%@の%@",text1,text2];
+NSLog(@"--------------------------------------------");
+NSLog(@"%@",text3);
+
+// 文字列の長さを調べる
+NSInteger txt_length = text3.length;
+NSLog(@"--------------------------------------------");
+NSLog(@"文字数：%d",txt_length);
+
+
+// 文字列検索 rangeOfString / JS の indexOf的な
+// rangeOfString,返値の型はNSRange
+// .locationで0から数えて一致した場所
+// .locationで一致しない場合は、NSNotFound（）
+
+NSString *keyword = @"なか";
+NSRange range = [text3 rangeOfString:keyword];
+NSLog(@"--------------------------------------------");
+if(range.location == 0){
+    NSLog(@"「%@」は含まれていない",keyword);
+}else{
+    // 「なか」は含まれていますが出力される
+    NSLog(@"「%@」は含まれています",keyword);
+}
+
+
+// 文字列の比較
+NSString *deffTxt1 = @"iPhone4";
+NSString *deffTxt2 = @"iPhone5";
+
+NSLog(@"--------------------------------------------");
+// あれ、普通に == で比較できちゃう？
+if(deffTxt1 == deffTxt2){
+    NSLog(@"deffTxt1 と deffTxt2 は一緒です");
+}else{
+    NSLog(@"deffTxt1 と deffTxt2 は一緒じゃない");
+}
+
+// 文字列は isEqualToString で比較
+NSLog(@"--------------------------------------------");
+if([deffTxt1 isEqualToString:deffTxt2]){
+    NSLog(@"deffTxt1 と deffTxt2 は一緒です");
+}else{
+    NSLog(@"deffTxt1 と deffTxt2 は一緒じゃない");
+}
+
+// 文字列置換 [stringByReplacingOccurrencesOfString:HOGE_BEFORE widthString:HOGE_AFTER]
+// jsの  var text_after = text_before.replace('1','2');
+NSString *replaceTxt1 = @"iPhone5最高!!!!";
+NSString *replaceAfterTxt = [replaceTxt1 stringByReplacingOccurrencesOfString:@"!" withString:@"?"];
+NSLog(@"置換後のテキスト：%@",replaceAfterTxt);
+
+
+```
