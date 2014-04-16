@@ -22,7 +22,6 @@ http://www.amazon.co.jp/Objective-C-iPhone%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E
 JSとほぼ一緒。  
 ただ、代入する変数に型指定が必要。  
 また、=== はない(そもそも型指定があるから？)  
-<<<<<<< HEAD
 
 
 
@@ -36,8 +35,6 @@ NSinteger 整数(負〜正) ビット長が変わる
 unsigned int 0 と正の整数  
 NSUInteger  0 と正の整数 ビット長が変わる  
 
-=======
-
 
 
 
@@ -50,7 +47,6 @@ NSinteger 整数(負〜正) ビット長が変わる
 unsigned int 0 と正の整数  
 NSUInteger  0 と正の整数 ビット長が変わる  
 
->>>>>>> 0f744c0172acf11d732d5b82d85ccebc0d602e10
 double 小数点がある場合  
 float 小数点がある場合、代入時に末尾にfをつける(例) float gap = 12.345f;  
 
@@ -137,21 +133,21 @@ if分はjsと一緒
 # switch
 jsと似ているけど、値の部分を、定数定義してあげないといけない
 ```
-    NSInteger YEAR = 2010;
-    NSInteger const A=2009;
-    NSInteger const B=2010;
-    
-    switch(YEAR){
-        case A:
-            NSLog(@"A");
-            break;
-        case B:
-            NSLog(@"B");
-            break;
-        default:
-            NSLog(@"Other");
-            break;
-    }
+NSInteger YEAR = 2010;
+NSInteger const A=2009;
+NSInteger const B=2010;
+
+switch(YEAR){
+    case A:
+        NSLog(@"A");
+        break;
+    case B:
+        NSLog(@"B");
+        break;
+    default:
+        NSLog(@"Other");
+        break;
+}
 ```
 
 
@@ -224,15 +220,7 @@ _myfield.text = @"test";
 
 # インスタンスの作成
 クラスからインスタンスを作る場合下記が必要  
-<<<<<<< HEAD
-=======
 
-1. インスタンス作成  
-\+ (id)alloc  
-
-2. インスタンス初期化  
-\+ (id)init  
->>>>>>> 0f744c0172acf11d732d5b82d85ccebc0d602e10
 
 1. インスタンス作成  
 \+ (id)alloc  
@@ -240,12 +228,16 @@ _myfield.text = @"test";
 2. インスタンス初期化  
 \+ (id)init  
 
+1. インスタンス作成  
+\+ (id)alloc  
 
-<<<<<<< HEAD
+2. インスタンス初期化  
+\+ (id)init  
 
 
-=======
->>>>>>> 0f744c0172acf11d732d5b82d85ccebc0d602e10
+
+
+
 # プログラム内の * は何？
 Objective-Cでインスタンス変数を宣言する時に、
 型がクラスオブジェクト型の場合は、変数名の頭にアスタリスクを付ける。
@@ -381,10 +373,8 @@ if([deffTxt1 isEqualToString:deffTxt2]){
 NSString *replaceTxt1 = @"iPhone5最高!!!!";
 NSString *replaceAfterTxt = [replaceTxt1 stringByReplacingOccurrencesOfString:@"!" withString:@"?"];
 NSLog(@"置換後のテキスト：%@",replaceAfterTxt);
-<<<<<<< HEAD
-
-
 ```
+
 
 #配列
 ```
@@ -398,18 +388,13 @@ float num2 = 0.55;
 NSArray *myArray2 = @[@(num1),@(num2)];
 NSLog(@"--------------------------------------------");
 NSLog(@"myArray2 = %@",myArray2);
-=======
->>>>>>> 0f744c0172acf11d732d5b82d85ccebc0d602e10
+
 
 // 配列を取り出す
 NSLog(@"--------------------------------------------");
 NSLog(@"%@",myArray[2]);
 
-<<<<<<< HEAD
 // 配列の要素数 count
 NSLog(@"--------------------------------------------");
 NSLog(@"%d",myArray.count);
 ```
-=======
-```
->>>>>>> 0f744c0172acf11d732d5b82d85ccebc0d602e10
