@@ -376,4 +376,63 @@ NSLog(@"%@",myArray[2]);
 // 配列の要素数 count
 NSLog(@"--------------------------------------------");
 NSLog(@"%d",myArray.count);
+
+
+NSLog(@"--------------------------------------------");
+// 要素の固定が確定していない場合の配列
+// NSMutableArray で作った配列では、配列の追加・削除（ミュータブル）が可能
+
+NSMutableArray *iOS = [NSMutableArray array];
+[iOS addObject:@"iPad"];
+[iOS addObject:@"iPhone"];
+// 配列にまとめてオブジェクトを挿入
+[iOS addObjectsFromArray:@[@"iPhone4",@"iPhone5",@"iPhone6"]];
+// 配列に配列を挿入
+[iOS addObject:@[@"iPhone7",@"iPhone8",@"iPhone9"]];
+NSLog(@"iOS = %@",iOS);
+NSLog(@"--------------------------------------------");
+NSLog(@"iOS = %@",iOS[5][1]);
+
+
+// --------------------------------------------------
+
+// 辞書（Dictionary） = jsでいうオブジェクト{key1:value1,key2:value2}
+
+// --------------------------------------------------
+NSLog(@"--------------------------------------------");
+NSDictionary *Soccer = @{
+    @"香川":@"マンU",
+    @"岡崎":@"マインツ",
+    @"本田":@"ミラン"
+};
+NSLog(@"%@",Soccer[@"香川"]);
+
+
+NSLog(@"--------------------------------------------");
+// 要素の追加、削除が可能（ミュータブル）な辞書。
+NSMutableDictionary *Football = [NSMutableDictionary dictionaryWithCapacity:3];
+// 辞書を追加
+Football[@"遠藤"] = @"G大阪";
+Football[@"長友"] = @"インテル";
+NSLog(@"%@",Football[@"長友"]);
+
+// --------------------------------------------------
+
+// 構造体
+
+// --------------------------------------------------
+typedef struct _box{
+    uint width;
+    uint height;
+    char type;
+} Box;
+
+Box box1,box2;
+
+box1.width = 150;
+box1.height = 200;
+box1.type = "AAA";
 ```
+
+
+
