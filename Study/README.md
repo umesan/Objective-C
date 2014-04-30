@@ -435,4 +435,119 @@ box1.type = "AAA";
 ```
 
 
+# ヘッダファイル(.h)、実装ファイル(.m)
 
+下記は、ほかのどのテンプレートでも必ず作成される基本ファイル。　
+こいつをベースにして、アプリを構築する。  
+AppDelegate .h .m ・・・ アプリ起動時・復帰時・終了時のもろもろの処理  
+ViewController .h .m ・・・画面の操作時の処理  
+  
+# インターフェースセクション / クラスエクステンション
+.m（実装ファイル） 内の インナーフェースセクションは、  
+宣言したクラス内のみにスコープがしぼられ、  
+別途クラスエクステンションとも呼ばれる。  
+  
+.h（宣言ファイル） 内にもインターフェスセクションがあるが、  
+こちらは、クラスエクステンションとは呼ばないのかも。  
+
+クラスを宣言する。
+```
+@interface ViewController ()
+@end
+```
+
+# インプリメンテーションセクション
+
+インターフェースセクションで宣言したプロパティを初期化したり  
+メソッドとかを定義したりするブロック。
+
+```
+@implementation ViewController
+@end
+```
+
+# インスタンス自身のメソッドとプロパティへのアクセス
+
+自分のプロパティにアクセスする際（jsでいうところの this かな）は、
+```
+self.プロパティ
+```
+でアクセス。
+
+```
+_プロパティ
+```
+
+でもアクセス可能。
+
+# スコープ
+グローバルで使いたい変数は、  
+.h　で宣言するか
+@interface ~@end で宣言しておく。
+
+基本的な流れとして、
+1. クラスエクステンションで変数やメソッドの宣言をする
+2. ほかのクラスからアクセスしたくなったら、ヘッダファイルに移す。
+
+
+# Xcodeで複数行インデント
+複数行選択して、Tabボタンを押すと消える。。。
+下記でインデント可能。
+```
+Command + ]
+Command + [
+```
+
+# プロジェクト作成時に自動的に用意されるメソッド
+```
+// [デフォルト処理] アプリ起動後、画面が表示される前に自動的に呼び出されるメソッド
+- (void)viewDidLoad{
+}
+```
+
+```
+// [デフォルト処理]アプリのメモリ使用量が大幅に増加した際に、自動的に呼び出されるメソッド
+- (void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+```
+
+
+# Objective-CのnilとNULLの違い
+nilはnullオブジェクトを表し、オブジェクトが未初期化であることや、  
+クリアされた状態であることを表わすのに使用される。
+
+
+# アプリ起動後に何かしたい時のタイミング
+
+iOS7だとviewDidLoadのタイミングで  
+Viewの操作をしようとすると動かないとか。
+
+```
+- (void)viewDidLoad
+{
+    // Viewが表示される最初の1回だけ呼ばれる
+    NSLog(@"viewDidLoad");
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Viewが表示される直前に呼ばれる
+    NSLog(@"viewWillAppear");
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Viewの表示完了後に呼ばれる
+    NSLog(@"viewDidAppear");
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // Viewが別のViewへ切り替わる直前に呼ばれる
+    NSLog(@"viewWillDisappear");
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    // Viewが別のViewへ切り替わった後に呼ばれる
+    NSLog(@"viewDidDisappear");
+}
+```
